@@ -1,0 +1,267 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #ffe6eb;
+    color: #333;
+    text-align: center;
+    overflow-x: hidden;
+  }
+  
+  header {
+    background: linear-gradient(135deg, #ff8da1, #ff5d8f);
+    color: white;
+    padding: 2rem 1rem;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  section {
+    padding: 2rem 1rem;
+  }
+  
+  #intro {
+    font-size: 1.3rem;
+    padding: 1rem 1rem;
+  }
+  
+  #gallery .photos {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  #gallery img {
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+  }
+  
+  #gallery img:hover {
+    transform: scale(1.05);
+  }
+  
+  #letter p {
+    max-width: 600px;
+    margin: auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  footer {
+    background: #ff8da1;
+    color: white;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Landing screen */
+  #landing {
+    height: 100vh;
+    background: linear-gradient(135deg, #ff8da1, #ff5d8f);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #landing button {
+    background: white;
+    color: #ff5d8f;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  #landing button:hover {
+    background: #ffe6eb;
+  }
+  
+  /* Floating hearts */
+  #hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .heart {
+    position: absolute;
+    color: rgba(255, 0, 76, 0.7);
+    font-size: 24px;
+    animation: floatUp 6s linear infinite;
+  }
+  
+  @keyframes floatUp {
+    from { transform: translateY(100vh) scale(1); opacity: 1; }
+    to { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+  }
+
+  /* Transition animations */
+  .fade-out {
+    animation: fadeOutZoom 1s forwards;
+  }
+  
+  .fade-in {
+    animation: fadeIn 1s forwards;
+  }
+  
+  @keyframes fadeOutZoom {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.1); }
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .hamburger {
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    user-select: none;
+  }
+
+  #sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background: #fff0f5;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    padding: 1rem 2.5rem; /* increased horizontal padding */
+    z-index: 20;
+    overflow-y: auto;
+  }
+  
+  #sidebar.open {
+    right: 0; /* slide in */
+  }
+
+  #sidebar button {
+    position: absolute;
+    top: 3%;
+    right: 15px; /* some space from right edge */
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  #sidebar h3 {
+    margin-top: 40px;
+    font-weight: bold;
+    color: #ff5d8f;
+  }
+  
+  #sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #sidebar ul li {
+    margin: 15px 0;
+  }
+  
+  #sidebar ul li a {
+    text-decoration: none;
+    color: #ff5d8f;
+    font-weight: bold;
+  }
+
+  .photos img {
+    width: 100%;        /* fill container width */
+    height: 400px;      /* fixed height for all images */
+    object-fit: cover;  /* crop to fill without distortion */
+    border-radius: 12px;
+    margin: 0 10px 10px 0;
+  }
+
+  .love-letter-button {
+    background-color: #ff4d88;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-family: 'Minecraft', sans-serif;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    transition: background 0.3s;
+  }
+  .love-letter-button:hover {
+    background-color: #e63e78;
+  }
+  
+  /* Popup container */
+  .love-letter-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* dark overlay */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Letter card */
+  .love-letter-card {
+    background: #fffaf0;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    font-family: 'Minecraft', sans-serif;
+  }
+  
+  /* Close button */
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+  }
+  .close-btn:hover {
+    color: #ff4d88;
+  }
+
+  .letter-image {
+    margin-top: 15px;
+    width: 160px;       /* adjust size */
+    height: auto;      /* keep proportions */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+
+  

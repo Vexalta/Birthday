@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday ❤️</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Floating hearts container -->
+  <div id="hearts-container"></div>
+
+  <!-- Landing Screen -->
+  <div id="landing">
+    <h1>💌 Happy Birthday, My Love 💌</h1>
+    <p>Click below to open your surprise 🎁</p>
+    <button id="start-btn">Open</button>
+  </div>
+
+  <!-- Main Content (hidden at first) -->
+  <div id="main-content" style="display:none;">
+    <header>
+      <div class="hamburger" id="hamburger">
+        ☰
+      </div>
+      <h1>Happy Birthday, My Love 🎂</h1>
+      <p class="subtitle">A little gift from my heart to yours 💌</p>
+    </header>
+
+    <section id="intro">
+      <p id="typewriter"></p>
+    </section>
+
+    <section id="gallery">
+      <h2>My Baby 🩷</h2>
+      <div class="photos">
+        <img src="images/baby1.jpeg" alt="Memory 1">
+        <img src="images/baby2.jpeg" alt="Memory 2">
+        <img src="images/baby3.jpeg" alt="Memory 3">
+      </div>
+    </section>
+
+    <section id="letter">
+        <button class="love-letter-button">💌 Read My Letter to You</button>
+
+        <!-- Hidden popup -->
+        <div class="love-letter-popup" id="loveLetterPopup">
+          <div class="love-letter-card">
+            <span class="close-btn" id="closePopup">&times;</span>
+            <h2>My Birthday Letter to You 💖</h2>
+            <p>
+              Happy birthday bby 🥳 I hope to have many more birthdays with you, I love you
+              so so so much & you make me so happy mwah mwah 
+            </p>
+            <img src="images/niya.PNG" alt="Niya" class="letter-image">
+          </div>
+        </div>
+    </section>
+
+    <footer>
+      <p>Made with ❤️ by Vex</p>
+    </footer>
+  </div>
+
+  <audio id="bg-music" src="music/tonghua.mp3" loop></audio>
+  <script src="script.js"></script>
+  <!-- Sidebar menu -->
+  <div id="sidebar">
+    <button id="close-sidebar">✕</button>
+    <h3>Extras 💫</h3>
+    <ul>
+      <li><a href="tvd.html">The Vampire Diaries ❤️🩸</a></li>
+      <li><a href="minecraft.html">Our Minecraft Memories ⛏️💖</a></li>
+    </ul>
+  </div>
+</body>
+</html>

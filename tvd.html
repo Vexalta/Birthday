@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vampire Diaries - Polaroid Profiles with Hover Info</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Indie+Flower&family=Roboto&display=swap');
+
+  body {
+    margin: 0;
+    background: #12121e; /* deep midnight blue */
+    color: #ccc;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #b3a9c9; /* soft lavender */
+    text-shadow: 0 0 6px #7a6f99;
+  }
+
+  .profiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* Polaroid Card */
+  .profile-card {
+    background: white;
+    border-radius: 12px 12px 20px 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+    padding: 1rem 1rem 3rem;
+    position: relative;
+    cursor: default;
+    transition: transform 0.3s ease;
+  }
+
+  .profile-card:hover {
+    transform: translateY(-10px) rotate(-1deg);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.9);
+  }
+
+  .profile-image {
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+    object-fit: cover;
+    height: 340px;
+    border-bottom: 8px solid #f5f5f5;
+  }
+
+  .profile-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #5e5470;
+    margin: 1rem 0 0.2rem 0;
+  }
+
+  .profile-quote {
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.1rem;
+    color: #7a6f99;
+    margin: 0 0 1rem 0;
+    min-height: 3rem;
+  }
+
+  .profile-bio {
+    font-size: 0.95rem;
+    color: #44475a;
+    line-height: 1.4;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  /* Handwritten note accent on the bottom */
+  .note-line {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Indie Flower', cursive;
+    color: #7a6f99;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* Hover Info Popup */
+  .hover-info {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2b2544dd;
+    color: #ddd;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+    width: 260px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .profile-card:hover .hover-info {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .hover-info h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+    color: #c7b8ff;
+    font-weight: 700;
+  }
+
+  .hover-info ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .hover-info li {
+    margin-bottom: 0.3rem;
+  }
+
+  @media (max-width: 600px) {
+    .profile-image {
+      height: 250px;
+    }
+  }
+
+  /* Return button style */
+  #return-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #7a6f99;
+    color: #eee;
+    border: none;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    transition: background-color 0.3s ease;
+  }
+  #return-btn:hover {
+    background: #a295c7;
+  }
+</style>
+</head>
+<body>
+
+  <button id="return-btn">← Back to Main Page</button>
+
+  <h1>Vampire Diaries — Character Profiles</h1>
+
+  <div class="profiles">
+
+    <div class="profile-card">
+      <img src="images/stefan.jpeg" alt="Stefan Salvatore" class="profile-image" />
+      <h2 class="profile-name">Stefan Salvatore</h2>
+      <p class="profile-quote">"We choose our own path. Our values and our actions — they define who we are."</p>
+      <p class="profile-bio">
+        Stefan is the younger Salvatore brother, a brooding vampire who constantly battles his darker urges. His loyalty and love for Elena define much of his story.
+      </p>
+
+      <div class="hover-info">
+        <h3>Details</h3>
+        <ul>
+          <li><strong>Species:</strong> Vampire</li>
+          <li><strong>Stats:</strong> Strength 8/10, Speed 9/10, Intelligence 7/10</li>
+          <li><strong>Power Level:</strong> 9000</li>
+          <li><strong>Note:</strong> My boy Stefan</li>
+        </ul>
+      </div>
+
+      <div class="note-line">- The Good Brother</div>
+    </div>
+
+    <div class="profile-card">
+      <img src="images/damon.jpeg" alt="Damon Salvatore" class="profile-image" />
+      <h2 class="profile-name">Damon Salvatore</h2>
+      <p class="profile-quote">"See, I don’t mind being the bad guy. Because somebody has to fill that role and get things done."</p>
+      <p class="profile-bio">
+        Damon is the charismatic older brother, known for his reckless charm and complicated morality. Beneath his tough exterior lies deep love and vulnerability.
+      </p>
+
+      <div class="hover-info">
+        <h3>Details</h3>
+        <ul>
+          <li><strong>Species:</strong> Vampire</li>
+          <li><strong>Stats:</strong> Strength 9/10, Speed 8/10, Intelligence 7/10</li>
+          <li><strong>Power Level:</strong> 9200</li>
+          <li><strong>Note:</strong> The OG mogger</li>
+        </ul>
+      </div>
+
+      <div class="note-line">- The Dark Charmer</div>
+    </div>
+
+    <div class="profile-card">
+      <img src="images/elena.jpeg" alt="Elena Gilbert" class="profile-image" />
+      <h2 class="profile-name">Elena Gilbert</h2>
+      <p class="profile-quote">"Dear Diary, today will be different. It has to be."</p>
+      <p class="profile-bio">
+        Elena is the human-turned-vampire whose journey drives the story. Her strength, compassion, and resilience inspire those around her.
+      </p>
+
+      <div class="hover-info">
+        <h3>Details</h3>
+        <ul>
+          <li><strong>Species:</strong> Vampire/Doppelganger</li>
+          <li><strong>Stats:</strong> Strength 7/10, Speed 7/10, Intelligence 8/10</li>
+          <li><strong>Power Level:</strong> 8500</li>
+          <li><strong>Note:</strong> She really need to stop whining sometimes, but she had aura when she killed Connor</li>
+        </ul>
+      </div>
+
+      <div class="note-line">- The Reluctant Vampire</div>
+    </div>
+
+    <div class="profile-card">
+      <img src="images/caroline.jpeg" alt="Caroline Forbes" class="profile-image" />
+      <h2 class="profile-name">Caroline Forbes</h2>
+      <p class="profile-quote">"I know you said to kill her with kindness, but can't I just kill her?"</p>
+      <p class="profile-bio">
+        Caroline evolves from a high school cheerleader to a strong, determined vampire. Her growth and friendship add warmth and humor to the story.
+      </p>
+
+      <div class="hover-info">
+        <h3>Details</h3>
+        <ul>
+          <li><strong>Species:</strong> Vampire</li>
+          <li><strong>Stats:</strong> Strength 7/10, Speed 8/10, Intelligence 9/10</li>
+          <li><strong>Power Level:</strong> 8700</li>
+          <li><strong>Note:</strong> The OG baddie</li>
+        </ul>
+      </div>
+
+      <div class="note-line">- The Survivor</div>
+    </div>
+
+    <div class="profile-card">
+      <img src="images/klaus.jpeg" alt="Klaus Mikaelson" class="profile-image" />
+      <h2 class="profile-name">Klaus Mikaelson</h2>
+      <p class="profile-quote">"I'm the hybrid! I can't be killed!."</p>
+      <p class="profile-bio">
+        Klaus is the powerful Original Vampire-Werewolf hybrid with a ruthless streak but a complicated heart. His presence changes the entire supernatural world.
+      </p>
+
+      <div class="hover-info">
+        <h3>Details</h3>
+        <ul>
+          <li><strong>Species:</strong> Original Vampire / Werewolf Hybrid</li>
+          <li><strong>Stats:</strong> Strength 10/10, Speed 10/10, Intelligence 8/10</li>
+          <li><strong>Power Level:</strong> 10000+</li>
+          <li><strong>Note:</strong> He can't be killed</li>
+        </ul>
+      </div>
+
+      <div class="note-line">- The Original Hybrid</div>
+    </div>
+
+    <div class="profile-card">
+      <img src="images/matt.jpeg" alt="Matt Donovan" class="profile-image" />
+      <h2 class="profile-name">Matt Donovan</h2>
+      <p class="profile-quote">"Sometimes it pays to be the only normal one in a town of vampires."</p>
+      <p class="profile-bio">
+        Matt is the human anchor amidst all supernatural chaos. Loyal, brave, and grounded, he keeps the heart of Mystic Falls beating.
+      </p>
+
+      <div class="hover-info">
+        <h3>Details</h3>
+        <ul>
+          <li><strong>Species:</strong> Human</li>
+          <li><strong>Stats:</strong> Strength ∞/10, Speed ∞/10, Intelligence ∞/10</li>
+          <li><strong>Power Level:</strong> ∞</li>
+          <li><strong>Note:</strong> The GOAT himself.</li>
+        </ul>
+      </div>
+
+      <div class="note-line">- The Heart of Mystic Falls</div>
+    </div>
+
+  </div>
+
+  <script>
+    const returnBtn = document.getElementById('return-btn');
+    returnBtn.addEventListener('click', () => {
+      // Change this to the URL of your landing/main page:
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
